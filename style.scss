@@ -1,0 +1,139 @@
+@font-face {
+  font-family: typonine sans light;
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001726.eot);
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001726.eot?#iefix) format("embedded-opentype"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001726.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001726.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001726.svg#Typotheque_webfonts_service) format("svg");
+}
+
+@font-face {
+  font-family: typonine sans regular;
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001728.eot);
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001728.eot?#iefix) format("embedded-opentype"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001728.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001728.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001728.svg#Typotheque_webfonts_service) format("svg");
+}
+
+@font-face {
+  font-family: typonine sans medium;
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001730.eot);
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001730.eot?#iefix) format("embedded-opentype"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001730.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001730.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001730.svg#Typotheque_webfonts_service) format("svg");
+}
+
+@font-face {
+  font-family: typonine sans bold;
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001732.eot);
+  src: url(https://content.arduino.cc/fonts/WF-028075-009795-001732.eot?#iefix) format("embedded-opentype"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001732.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001732.woff) format("woff"),
+    url(https://content.arduino.cc/fonts/WF-028075-009795-001732.svg#Typotheque_webfonts_service) format("svg");
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@mixin thumb($prop, $value) {
+  /* Special styling for WebKit/Blink */
+  input[type="range"]::-webkit-slider-thumb {
+    #{$prop}: $value;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type="range"]::-moz-range-thumb {
+    #{$prop}: $value;
+  }
+
+  /* All the same stuff for IE */
+  input[type="range"]::-ms-thumb {
+    #{$prop}: $value;
+  }
+}
+
+.list {
+  font-family: Roboto, sans-serif;
+  flex-direction: column;
+  color: #eee;
+
+  h3 {
+    font-weight: 500;
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 50em;
+    margin: 2ex 0;
+
+    option {
+      font-size: 1.1em;
+    }
+  }
+}
+
+.emojifier-remove-channel + .divider-3573oO + .emojifier-remove-channel {
+  margin: 2em 0;
+}
+
+.emojifier-remove-channel {
+  p {
+    color: #eee;
+  }
+  h2 {
+    font-size: 1.16em;
+    color: #eee;
+    font-weight: 600;
+    margin: 0.2em 0;
+  }
+
+  input[type="range"] {
+    width: 50em;
+    height: 2em;
+    cursor: pointer;
+  }
+  
+}
+
+.manage-channel-control {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  place-self: center;
+  button {
+    margin: 0.5em 1em;
+    font-size: 1.01em;
+    transition: all ease-out 0.1s;
+    position: relative;
+    background: hsl(203, 11%, 31%);
+    border: 0;
+    top: 0;
+    box-shadow: 0 6px lighten(hsl(203, 11%, 19%), 20%);
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 12px 20px 9px;
+    letter-spacing: 0.9px;
+    max-height: 34px;
+    font-family: "typonine sans medium", "Roboto", sans-serif;
+    color: white;
+    font-weight: 500;
+  }
+
+  button:hover {
+    transition: all ease-out 0.1s;
+    background: hsl(203, 11%, 31%);
+    top: 2px;
+    box-shadow: 0 4px lighten(hsl(203, 11%, 19%), 20%);
+  }
+
+  button:active {
+    transition: all ease-out 0.1s;
+    background: hsl(203, 11%, 31%);
+    box-shadow: none;
+    top: 6px;
+  }
+  // justify-content: space;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Message emojifier",
+  "version": "0.0.1",
+  "description": "Turn any message into a emojipasta",
+  "author": "Vincent",
+  "license": "MIT"
+}
