@@ -1,4 +1,4 @@
-/** @type {import('../../../fake_node_modules/powercord/entities*/
+(function (exports, require, module, __filename, __dirname, process, global, Buffer) { return function (exports, require, module, __filename, __dirname) { /** @type {import('../../../fake_node_modules/powercord/entities*/
 const { Plugin } = require('powercord/entities');
 const Settings = require("./Settings");
 const { inject, uninject } = require("powercord/injector");
@@ -26,9 +26,22 @@ module.exports = class Emojifier extends Plugin {
         const emojiPasta = generateEmojipasta(args[1].content)
         const channel = getChannel(args[0]);
         const { exludedChannel, exludedServer} = getSettings()
-        if (exludedChannel.includes(channel.id) || exludedServer.includes(channel.guild_id))
+        const excludedChannel = exludedChannel.map(e => e.split(/(\d+)/)[1])
+        const excludedServer = exludedServer.map(s => s.split(/(\d+)/)[1])
+        const isUserChannel = channel.type === 1
+
+        if (excludedChannel.includes(channel.id) || excludedServer.includes(channel.guild_id))
           return args
-        
+        // block emote from dm
+        for (const exclChannel of excludedChannel) {
+          if (channel.recipients.includes(exclChannel))
+            return args
+        }
+
+        for (const server of excludedServer) {
+          if (channel.recipients.includes(server))
+            return args
+        }
         args[1].content = emojiPasta
         return args;
       });
@@ -42,3 +55,4 @@ module.exports = class Emojifier extends Plugin {
     uninject("emojifier");
   }
 };
+}.call(this, exports, require, module, __filename, __dirname); });
