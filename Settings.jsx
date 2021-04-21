@@ -21,6 +21,7 @@ module.exports = function (props) {
   }, [maxEmoji]);
 
   const { getChannel } = getModule(["getChannel"], false);
+  const { getUser } = getModule(["getUser"], false);
   const { getGuild } = getModule(["getGuild"], false);
 
 
@@ -63,12 +64,21 @@ module.exports = function (props) {
             if (!channelTextInputText || Number(channelTextInputText) === NaN || excludedChannel.includes(channelTextInputText))
               return;
             try {
-
               excludedChannel.push(`${getChannel(channelTextInputText).id} (${getChannel(channelTextInputText).name} in the discord server ${getGuild(getChannel(channelTextInputText).guild_id).name})`);
               window.localStorage.setItem("excluded-channel", JSON.stringify(excludedChannel));
               setChannels(excludedChannel);
             }
             catch (e) {
+              try {
+                if (/\d+/.test(channelTextInputText))
+                  throw "cock"
+                excludedChannel.push(`${channelTextInputText} (${getUser(channelTextInputText).username})`);
+                window.localStorage.setItem("excluded-channel", JSON.stringify(excludedChannel));
+                setChannels(excludedChannel);
+              }
+              catch (e2) {
+
+              }
             }
             finally {
               setChannelInputText("");
