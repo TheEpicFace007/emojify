@@ -58,7 +58,7 @@ module.exports = function (props) {
           onSelectItem={setSelectedChannelID}
         />
         <div className="manage-channel-control">
-          <button onClick={function () {
+          <button onClick={async function () {
             /** @type {string[]} */
             const excludedChannel = JSON.parse(window.localStorage.getItem("excluded-channel")) ?? [];
             if (!channelTextInputText || Number(channelTextInputText) === NaN || excludedChannel.includes(channelTextInputText))
@@ -69,10 +69,12 @@ module.exports = function (props) {
               setChannels(excludedChannel);
             }
             catch (e) {
+              // try to add a user if it cant add a user
               try {
                 if (/\d+/.test(channelTextInputText))
-                  throw "cock"
-                excludedChannel.push(`${channelTextInputText} (${getUser(channelTextInputText).username})`);
+                  setChannelInputText("");
+                const user = await getUser(channelTextInputText);
+                excludedChannel.push(`${channelTextInputText} (user ${user.username})`);
                 window.localStorage.setItem("excluded-channel", JSON.stringify(excludedChannel));
                 setChannels(excludedChannel);
               }
