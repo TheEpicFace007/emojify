@@ -13,9 +13,11 @@ module.exports = class Emojifier extends Plugin {
       window.localStorage.setItem("excluded-server", "[]");
     if (!window.localStorage.getItem("excluded-channel"))
       window.localStorage.setItem("excluded-channel", "[]");
-    if (!window.localStorage.getItem("excluded-channel"))
-      this.loadStylesheet("style.scss");
-      
+    if (!window.localStorage.getItem("max-emoji-per-word"))
+      window.setItem("max-emoji-per-word", "2");
+
+    this.loadStylesheet("style.scss");
+
     powercord.api.settings.registerSettings("emojify", {
       category: this.entityID,
       label: "Emojifier",
@@ -26,6 +28,7 @@ module.exports = class Emojifier extends Plugin {
       const messageEvents = await getModule(["sendMessage"], true);
       if (!messageEvents)
         throw new ReferenceError("Failed to load message events");
+
       inject("emojifier-injection-id", messageEvents, "sendMessage", function (args) {
         const { getChannel } = getModule(["getChannel"], false);
         const emojiPasta = generateEmojipasta(args[1].content);
