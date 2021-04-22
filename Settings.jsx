@@ -44,16 +44,16 @@ module.exports = function (props) {
       <div className="emojifier-remove-channel">
         <h2>Excluded channels</h2>
         <TextInput
-          note="Channel ID of an new excluded channel (you can put user id to ignore on dm with specific user)"
+          note="Channel ID of an new excluded channel (you can also put a user id to ignore dm with specific user)"
           required={false}
           onChange={setChannelInputText}
           value={channelTextInputText}
         >
-          Excluded channels
+          Excluded channels &amps; excluded users
        </TextInput>
         <List
           item={channels}
-          name="Channel ID"
+          name="Channel ID &amp; users"
           selectedItem={selectedChannelID}
           onSelectItem={setSelectedChannelID}
         />

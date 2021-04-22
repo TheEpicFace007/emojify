@@ -1,4 +1,3 @@
-(function (exports, require, module, __filename, __dirname, process, global, Buffer) { return function (exports, require, module, __filename, __dirname) { /** @type {import('../../../fake_node_modules/powercord/entities*/
 const { Plugin } = require('powercord/entities');
 const Settings = require("./Settings");
 const { inject, uninject } = require("powercord/injector");
@@ -55,4 +54,3 @@ module.exports = class Emojifier extends Plugin {
     uninject("emojifier");
   }
 };
-}.call(this, exports, require, module, __filename, __dirname); });
