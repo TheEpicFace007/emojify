@@ -12,7 +12,7 @@ module.exports = function generateEmojipasta(text) {
         newBlocks.push(block);
         emojis = generateEmojisFrom(block);
         if (emojis) {
-          newBlocks.push(" " + emojis);
+          newBlocks.push("" + emojis);
         }
       });
 
