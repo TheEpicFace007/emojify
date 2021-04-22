@@ -13,6 +13,6 @@ module.exports = function () {
 
   return {
     maxEmotePerWord: window.localStorage.getItem("max-emoji-per-word") ?? 2,
-    exludedServer: excludedServer, exludedChannel: excludedChannel
+    exludedServer: JSON.parse(excludedServer), exludedChannel: JSON.parse(excludedChannel)
   };
 }
