@@ -14,7 +14,7 @@ module.exports = class Emojifier extends Plugin {
     if (!window.localStorage.getItem("excluded-channel"))
       window.localStorage.setItem("excluded-channel", "[]");
     if (!window.localStorage.getItem("max-emoji-per-word"))
-      window.setItem("max-emoji-per-word", "2");
+      window.localStorage.setItem("max-emoji-per-word", "2");
 
     this.loadStylesheet("style.scss");
 
